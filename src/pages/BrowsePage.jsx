@@ -1,11 +1,10 @@
-import { cacheSignal, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import axios from "axios";
 import MovieDetailsModal from "../components/MovieDetailsModal";
 import Loading from "../components/Loading";
 import Error from "../components/ErrorMessage";
 
-// Main Page Component
 const BrowsePage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -16,7 +15,8 @@ const BrowsePage = () => {
       .get("https://api.tvmaze.com/shows")
       .then((response) => {
         setTimeout(() => {
-          (setMovies(response.data), setLoading(false) );
+          setMovies(response.data);
+          setLoading(false);
         }, 500);
       })
       .catch((err) => {
@@ -26,22 +26,20 @@ const BrowsePage = () => {
   }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
-  // UI Search Filtering Logic (Pre-API Integration)
   const filteredMovies = movies.filter((movie) => movie.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#0B132B] text-white">
-      {/* Top Ambient Glow */}
+    <div className="relative min-h-screen bg-[#0B132B] text-white overflow-hidden">
       <div
         className="pointer-events-none absolute top-0 left-0 right-0 h-96 z-0"
         style={{
-          background: "radial-gradient(60% 30% at 50% 0%, rgba(57, 255, 136, 0.1) 0%, rgba(11, 19, 43, 0) 100%)",
+          background: "radial-gradient(60% 50% at 50% 0%, rgba(57, 255, 136, 0.15) 0%, rgba(11, 19, 43, 0) 100%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-12 lg:px-8">
         {/* Page Header & Search Bar Section */}
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
@@ -97,9 +95,9 @@ const BrowsePage = () => {
 
         {/* Movie Grid Section */}
         {isLoading ? (
-          <Loading/>
+          <Loading />
         ) : error ? (
-          <Error/>
+          <Error message={error} />
         ) : filteredMovies.length > 0 ? (
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {filteredMovies.slice(0, 8).map((movie) => (

@@ -1,10 +1,9 @@
 import { Icon } from "@iconify/react";
-import React from "react";
 import { Link } from "react-router";
 
 export const HeroBanner = () => {
   return (
-    <section className="relative overflow-hidden bg-[#0B132B] py-20 sm:py-28 lg:py-36">
+    <section className=" overflow-hidden bg-[#0B132B] py-20 sm:py-28 lg:py-36">
       {/* Background Layers */}
       <div className="pointer-events-none absolute inset-0 z-0">
         {/* Cinematic Backdrop Image */}
