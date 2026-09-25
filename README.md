@@ -6,10 +6,7 @@
 
 # 🎬 CINEHUB — Modern Movie & TV Show Discovery Platform
 
-[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-Visit_Website-39FF88?style=for-the-badge&logo=vercel&logoColor=0B132B)](https://your-live-website-link.vercel.app)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/your-username/cinehub)
-
-> 🔗 **Live Preview:** [https://your-live-website-link.vercel.app](https://your-live-website-link.vercel.app)
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-Visit_Website-39FF88?style=for-the-badge&logo=vercel&logoColor=0B132B)]([https://chunehub.vercel.app/])
 
 ## 🌟 Key Features
 
