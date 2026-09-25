@@ -11,7 +11,6 @@ const Navbar = () => {
   const NavLink = [
     { id: 1, Name: "Home", href: "/" },
     { id: 2, Name: "Browse", href: "/browse" },
-    { id: 3, Name: "Categories", href: "/categories" },
   ];
 
 
@@ -45,7 +44,7 @@ const Navbar = () => {
         {/* Desktop CTA & Mobile Toggle */}
         <div className="flex items-center gap-4">
           <Link
-            to="/movies"
+            to="/browse"
             className="hidden sm:inline-flex items-center gap-2 rounded-md bg-[#39FF88] px-5 py-2.5 text-sm font-semibold text-[#0B132B] transition-all hover:bg-[#52FF98] hover:scale-x-90 hover:shadow-[0_4px_16px_rgba(57,255,136,0.2)] active:scale-[0.98]"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

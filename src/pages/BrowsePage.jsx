@@ -1,36 +1,35 @@
-import { cacheSignal, useEffect, useState } from 'react';
-import MovieCard from '../components/MovieCard';
-import axios from 'axios';
-import MovieDetailsModal from '../components/MovieDetailsModal';
-
-
+import { cacheSignal, useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
+import axios from "axios";
+import MovieDetailsModal from "../components/MovieDetailsModal";
+import Loading from "../components/Loading";
+import Error from "../components/ErrorMessage";
 
 // Main Page Component
-const BrowsePage= () => {
+const BrowsePage = () => {
+  const [movies, setMovies] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const [movies, setMovies]= useState([])
-  const [isLoading, setLoading]= useState(true)
-  const [error, setError] = useState(null)
+  useEffect(() => {
+    axios
+      .get("https://api.tvmaze.com/shows")
+      .then((response) => {
+        setTimeout(() => {
+          (setMovies(response.data), setLoading(false) );
+        }, 500);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
-  useEffect (()=>{
-    axios.get("https://api.tvmaze.com/shows")
-    .then((response)=>{
-      setMovies(response.data)
-      setLoading(false)
-    }).catch((err)=>{
-      setError(err.message)
-      setLoading(false)
-    })
-  }, [])
-
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   // UI Search Filtering Logic (Pre-API Integration)
   const filteredMovies = movies.filter((movie) => movie.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
-
   const [selectedMovie, setSelectedMovie] = useState(null);
-
-
 
   return (
     <div className="min-h-screen bg-[#0B132B] text-white">
@@ -65,10 +64,6 @@ const BrowsePage= () => {
               placeholder="Search for a movie or show by title..."
               className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-12 text-sm font-medium text-white placeholder-slate-400 backdrop-blur-md outline-none transition-all duration-200 focus:border-[#39FF88] focus:bg-white/10 focus:ring-1 focus:ring-[#39FF88] hover:border-white/20"
             />
-
-            {isLoading && <h1>Loading...</h1>}
-            {error && <h1>Something went wrong</h1>}
-
             {searchQuery && (
               <button onClick={() => setSearchQuery("")} className="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-white">
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -101,7 +96,11 @@ const BrowsePage= () => {
         </div>
 
         {/* Movie Grid Section */}
-        {filteredMovies.length > 0 ? (
+        {isLoading ? (
+          <Loading/>
+        ) : error ? (
+          <Error/>
+        ) : filteredMovies.length > 0 ? (
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {filteredMovies.slice(0, 8).map((movie) => (
               <MovieCard key={movie.id} movie={movie} setSelectedMovie={setSelectedMovie} />

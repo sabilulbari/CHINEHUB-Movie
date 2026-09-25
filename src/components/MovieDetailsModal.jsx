@@ -5,7 +5,7 @@ const MovieDetailsModal = ({ movie, onClose }) => {
 
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 mt-10 backdrop-blur-sm">
         {/* Modal Box */}
         <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-[#0B132B] p-6 text-white shadow-2xl">
           {/* Close Button */}
@@ -46,7 +46,6 @@ const MovieDetailsModal = ({ movie, onClose }) => {
                 <span className="font-semibold text-white">Premiered:</span> {movie?.premiered || "Unknown"}
               </p>
 
-              {/* TVMaze-এর Summary HTML আকারে থাকে, তাই dangerouslySetInnerHTML দেওয়া হলো */}
               <div className="mt-4 text-sm text-slate-400 [&>p]:mb-2" dangerouslySetInnerHTML={{ __html: movie?.summary || "No description available." }} />
             </div>
           </div>
