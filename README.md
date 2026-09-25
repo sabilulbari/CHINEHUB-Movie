@@ -4,9 +4,11 @@
 
 ---
 
-# 🎬 CINEHUB — Modern Movie & TV Show Discovery Platform
+## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-Visit_Website-39FF88?style=for-the-badge&logo=vercel&logoColor=0B132B)]([https://chunehub.vercel.app/])
+Experience the live application deployed on Vercel/Netlify:
+
+👉 **[Launch CINEHUB Live Application](https://your-live-website-link.vercel.app)**
 
 ## 🌟 Key Features
 
