@@ -8,7 +8,7 @@
 
 Experience the live application deployed on Vercel/Netlify:
 
-👉 **[Launch CINEHUB Live Application](https://your-live-website-link.vercel.app)**
+👉 **[Launch CINEHUB Live Application](https://chunehub.vercel.app/)**
 
 ## 🌟 Key Features
 
