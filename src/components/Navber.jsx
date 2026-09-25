@@ -32,7 +32,7 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex md:items-center md:gap-8">
           {NavLink.map((link) => {
-            const isActive = pathname === link.href
+            const isActive = pathname === link.href;
             return (
               <Link key={link.id} to={link.href} className="relative py-1 text-sm font-medium text-[#39FF88] transition-colors">
                 {link.Name}
@@ -44,9 +44,9 @@ const Navbar = () => {
 
         {/* Desktop CTA & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <a
-            href="/movies"
-            className="hidden sm:inline-flex items-center gap-2 rounded-md bg-[#39FF88] px-5 py-2.5 text-sm font-semibold text-[#0B132B] transition-all hover:bg-[#52FF98] hover:shadow-[0_4px_16px_rgba(57,255,136,0.2)] active:scale-[0.98]"
+          <Link
+            to="/movies"
+            className="hidden sm:inline-flex items-center gap-2 rounded-md bg-[#39FF88] px-5 py-2.5 text-sm font-semibold text-[#0B132B] transition-all hover:bg-[#52FF98] hover:scale-x-90 hover:shadow-[0_4px_16px_rgba(57,255,136,0.2)] active:scale-[0.98]"
           >
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -57,7 +57,7 @@ const Navbar = () => {
               />
             </svg>
             Explore Movies
-          </a>
+          </Link>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -79,7 +79,7 @@ const Navbar = () => {
         <div className="border-b border-white/10 bg-[#0B132B] px-4 pb-6 pt-2 md:hidden" id="mobile-menu">
           <div className="space-y-2">
             {NavLink.map((link) => {
-            const isActive = pathname === link.href;
+              const isActive = pathname === link.href;
 
               return (
                 <a key={link.id} href={link.href} className={`block rounded-md ${isActive && "bg-white/5"} px-3 py-2 text-base font-medium text-[#39FF88]`}>
