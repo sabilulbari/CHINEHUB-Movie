@@ -23,7 +23,6 @@ Experience the live application deployed on Vercel/Netlify:
 ## 🛠️ Tech Stack
 
 * **Frontend Framework:** React.js / Next.js
-* **Type Safety:** TypeScript
 * **Styling:** Tailwind CSS
 * **Icons:** Custom SVG Vector Suite / Heroicons
 * **Data Provider:** TVMaze API / Open Movie Database *(Integrated via REST API)*
@@ -34,12 +33,12 @@ Experience the live application deployed on Vercel/Netlify:
 
 src/
 ├── components/
-│   ├── Navbar.tsx        # Responsive Top Navigation & CTA
-│   ├── HeroBanner.tsx    # High-Impact Hero Banner Section
-│   ├── MovieCard.tsx     # Reusable Movie Card Sub-Component
-│   └── Footer.tsx        # Footer Navigation & Social Links
+│   ├── Navbar.jsx        # Responsive Top Navigation & CTA
+│   ├── HeroBanner.jsx    # High-Impact Hero Banner Section
+│   ├── MovieCard.jsx     # Reusable Movie Card Sub-Component
+│   └── Footer.jsx        # Footer Navigation & Social Links
 ├── pages/
-│   └── MovieListing.tsx  # Main Movie Listing Page with Live Search
+│   └── MovieListing.jsx  # Main Movie Listing Page with Live Search
 ├── styles/
 │   └── globals.css       # Global Design System Utilities & Keyframes
 └── App.tsx               # Primary Application Container
