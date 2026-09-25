@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
+import { Link, useLocation, useParams } from "react-router";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const pathname = location.pathname;
+  console.log(pathname);
 
-  const NavLink =[
-    {id: 1, Name: "Home", href: "/"},
-    {id: 1, Name: "Browse", href: "/browse"},
-    {id: 1, Name: "Categories", href: "/Categories"},
-  ]
+  const NavLink = [
+    { id: 1, Name: "Home", href: "/" },
+    { id: 2, Name: "Browse", href: "/browse" },
+    { id: 3, Name: "Categories", href: "/categories" },
+  ];
+
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#0B132B]/90 backdrop-blur-md">
@@ -25,11 +31,15 @@ const Navbar = () => {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex md:items-center md:gap-8">
-          {NavLink.map((link) => (
-            <a href="#" className="relative py-1 text-sm font-medium text-[#39FF88] transition-colors">
-              {link.Name}
-            </a>
-          ))}
+          {NavLink.map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link key={link.id} to={link.href} className="relative py-1 text-sm font-medium text-[#39FF88] transition-colors">
+                {link.Name}
+                {isActive && <span className="absolute bottom-0 left-0 h-0.5 w-full rounded-full bg-[#39FF88]" />}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop CTA & Mobile Toggle */}
@@ -55,9 +65,9 @@ const Navbar = () => {
             className="inline-flex items-center justify-center rounded-md p-2 text-slate-400 hover:bg-white/5 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#39FF88] md:hidden cursor-pointer"
           >
             {isMobileMenuOpen ? (
-              <Icon icon="ci:hamburger-md" className="text-[#39FF88] text-3xl" />
-            ) : (
               <Icon icon="line-md:menu-to-close-alt-transition" className="text-[#39FF88] text-3xl" />
+            ) : (
+              <Icon icon="ci:hamburger-md" className="text-[#39FF88] text-3xl" />
             )}
             <span className="sr-only">Toggle menu</span>
           </button>
@@ -68,18 +78,15 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="border-b border-white/10 bg-[#0B132B] px-4 pb-6 pt-2 md:hidden" id="mobile-menu">
           <div className="space-y-2">
-            <a href="#" className="block rounded-md bg-white/5 px-3 py-2 text-base font-medium text-[#39FF88]">
-              Home
-            </a>
-            <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-              Browse
-            </a>
-            <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-              Categories
-            </a>
-            <a href="#" className="block rounded-md px-3 py-2 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white">
-              Pricing
-            </a>
+            {NavLink.map((link) => {
+            const isActive = pathname === link.href;
+
+              return (
+                <a key={link.id} href={link.href} className={`block rounded-md ${isActive && "bg-white/5"} px-3 py-2 text-base font-medium text-[#39FF88]`}>
+                  {link.Name}
+                </a>
+              );
+            })}
           </div>
           <div className="mt-4 pt-4 border-t border-white/10 sm:hidden">
             <a href="/movies" className="flex w-full items-center justify-center gap-2 rounded-md bg-[#39FF88] px-5 py-3 text-center text-sm font-semibold text-[#0B132B]">
