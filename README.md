@@ -1,19 +1,56 @@
-# React + Vite
+# 🎬 CINEHUB — Modern Movie & TV Show Discovery Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**CINEHUB** is a high-performance, modern web application designed for browsing, searching, and discovering movies and TV shows from around the globe. Built with React, TypeScript, and Tailwind CSS, CINEHUB features an executive-grade dark UI design system optimized for modern display standards.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Key Features
 
-## React Compiler
+* **⚡ Real-Time Search:** Instant filtering and search capabilities by title.
+* **🎨 Modern Visual Design System:** Dark Navy (`#0B132B`) paired with high-contrast Neon Green (`#39FF88`) accents, ambient radial glow layers, and glassmorphism elements.
+* **📱 Fully Responsive Architecture:** Seamless user experience across Desktop, Tablet, and Mobile devices with flexible touch targets and drop-down menu navigation.
+* **🎬 Interactive Movie Grid:** Card-based UI architecture displaying poster graphics, star ratings, release years, and genre tags.
+* **🚀 Lightweight & Performant:** Built with utility-first CSS and component-driven architecture for rapid rendering.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+* **Frontend Framework:** React.js / Next.js
+* **Type Safety:** TypeScript
+* **Styling:** Tailwind CSS
+* **Icons:** Custom SVG Vector Suite / Heroicons
+* **Data Provider:** TVMaze API / Open Movie Database *(Integrated via REST API)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Project Architecture
+
+src/
+├── components/
+│   ├── Navbar.tsx        # Responsive Top Navigation & CTA
+│   ├── HeroBanner.tsx    # High-Impact Hero Banner Section
+│   ├── MovieCard.tsx     # Reusable Movie Card Sub-Component
+│   └── Footer.tsx        # Footer Navigation & Social Links
+├── pages/
+│   └── MovieListing.tsx  # Main Movie Listing Page with Live Search
+├── styles/
+│   └── globals.css       # Global Design System Utilities & Keyframes
+└── App.tsx               # Primary Application Container
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally on your machine:
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/your-username/cinehub.git](https://github.com/your-username/cinehub.git)
+cd cinehub
+
+npm install
+# or
+yarn installnpm run dev
+# or
+yarn dev
