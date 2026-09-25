@@ -1,12 +1,15 @@
-import Navber from './components/Navber'
+import { useState, useEffect } from "react";
+import Loading from "./components/Loading"; // আপনার কাস্টম লোডার কম্পোনেন্ট
+import Navbar from "./components/Navber";
 
-function App() {
+const App = () => {
+ 
 
   return (
-    <>
-     <Navber/>
-    </>
-  )
-}
+    <div>
+      <Navbar />
+    </div>
+  );
+};
 
-export default App
+export default App;
