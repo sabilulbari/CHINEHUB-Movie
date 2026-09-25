@@ -19,7 +19,7 @@ const Loading = () => {
 
       {/* Loading Text & Animated Dots */}
       <div className="mt-6 flex items-center gap-1">
-        <h3 className="text-lg font-bold tracking-wider text-white">FETCHING MOVIES</h3>
+        <h3 className="text-lg font-bold tracking-wider text-white">COLLECTING MOVIES</h3>
         <span className="flex gap-1 text-[#39FF88]">
           <span className="animate-bounce [animation-delay:-0.3s]">•</span>
           <span className="animate-bounce [animation-delay:-0.15s]">•</span>
