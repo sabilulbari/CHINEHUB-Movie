@@ -1,18 +1,13 @@
 import { Icon } from "@iconify/react";
 
 const MovieDetailsModal = ({ movie, onClose }) => {
-
-
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 mt-10 backdrop-blur-sm">
         {/* Modal Box */}
-        <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-[#0B132B] p-6 text-white shadow-2xl">
+        <div className="relative max-h-[75vh] md:max-h-screen w-full md:max-w-4xl overflow-y-auto no-scrollbar rounded-2xl border border-white/10 bg-[#0B132B] p-6 text-white shadow-2xl">
           {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute right-4 top-4 hover:text-red-500 cursor-pointer rounded-full bg-white/10 p-2 text-slate-400 hover:bg-red-500/20"
-          >
+          <button onClick={onClose} className="absolute right-4 top-4 hover:text-white cursor-pointer rounded-full bg-white/50 p-2 text-white-400 hover:bg-red-500 font-extrabold">
             <Icon icon="ant-design:close-outlined" className="text-xl font-bold" />
           </button>
 
@@ -21,7 +16,7 @@ const MovieDetailsModal = ({ movie, onClose }) => {
             <img
               src={movie?.image?.original || movie?.image?.medium || "https://via.placeholder.com/210x295"}
               alt={movie?.name}
-              className="h-72 w-full rounded-xl object-cover md:w-56"
+              className="h-72 w-full rounded-xl object-cover md:w-56 mt-10 md:mt-0"
             />
 
             {/* Movie Details */}

@@ -88,7 +88,7 @@ const Navbar = () => {
             })}
           </div>
           <div className="mt-4 pt-4 border-t border-white/10 sm:hidden">
-            <a href="/movies" className="flex w-full items-center justify-center gap-2 rounded-md bg-[#39FF88] px-5 py-3 text-center text-sm font-semibold text-[#0B132B]">
+            <Link to="/browse" className="flex w-full items-center justify-center gap-2 rounded-md bg-[#39FF88] px-5 py-3 text-center text-sm font-semibold text-[#0B132B]">
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -98,7 +98,7 @@ const Navbar = () => {
                 />
               </svg>
               Explore Movies
-            </a>
+            </Link>
           </div>
         </div>
       )}
